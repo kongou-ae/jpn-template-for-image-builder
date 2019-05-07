@@ -4,7 +4,7 @@ $LpUrl = "http://download.windowsupdate.com/c/msdownload/update/software/updt/20
 $LpFile = "lp_9a666295ebc1052c4c5ffbfa18368dfddebcd69a.cab"
 $LpTemp = "C:\LpTemp.cab"
 Set-WinUserLanguageList -LanguageList ja-JP,en-US -Force
-Start-BitsTransfer -Source $LpUrl$LpFile -Destination $LpTemp -Priority High
+Invoke-WebRequest -Uri $LpUrl$LpFile -OutFile $LpTemp
 Add-WindowsPackage -PackagePath $LpTemp -Online
 Set-WinDefaultInputMethodOverride -InputTip "0411:00000411"
 Set-WinLanguageBarOption -UseLegacySwitchMode -UseLegacyLanguageBar
